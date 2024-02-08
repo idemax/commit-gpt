@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import shell from 'shelljs';
 import readline from 'readline';
 import process from 'process';
+import fs from 'fs';
 
 dotenv.config();
 
@@ -142,7 +143,13 @@ async function processFiles(trust = false) {
         .map((line) => line.substring(3));
 
     for (const file of filePaths) {
-        await confirmAndCommitFile(file, trust);
+        // Construct the full path to the file
+        const fullPath = `./${file}`;
+
+        // Check if the path is a file using fs.lstatSync
+        if (fs.lstatSync(fullPath).isFile()) {
+            await confirmAndCommitFile(file, trust);
+        }
     }
 
     rl.close();
