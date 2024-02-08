@@ -58,17 +58,7 @@ async function hasChangesToCommit() {
 async function generateCommitMessageForFile(file) {
     const diff = shell.exec(`git diff ${file}`, { silent: true }).stdout;
     try {
-        const prompt = `Generate a commit message for the file '${file}' following these comprehensive guidelines:
-
-- Start with a concise summary under 72 characters, capturing the essence of the change in the imperative mood (e.g., "Add", "Fix").
-- Specify the action taken (Added, Renamed, Moved, Deleted) and reflect the main impact or purpose of the change.
-- Include references to issues or tickets when relevant, using a format like [#123] for GitHub or CAT-123 for Jira in the header or body. You can check the branch name for the issue number.
-- Avoid emojis, slang, and end the subject line without a period. Capitalize the subject line.
-- It should be able to complete the sentence "If applied, this commit will...".
-- Provide context on why a change is being made, its effects, and any limitations of the current code. Avoid assuming the code is self-evident.
-- Keep it under 72 characters and a single line.
-
-Here are the changes in '${file}':\n${diff}`;
+        const prompt = `Act like a very experienced senior software engineer, I need a succinct and informative commit message, you will generate a commit message for the file '${file}', in the process, you should encapsulate the essence of the change within 72 characters, using the imperative mood (e.g., "Add", "Fix"), specify the action taken (Added, Renamed, Moved, Deleted), and reflect on the main impact or purpose of the change. Include issue references when relevant using formats like [#123] for GitHub or CAT-123 for Jira. Provide context on why the change is being made, its effects, and any limitations. Please avoid using emojis, slang, and do not end the subject line with a period. Input the final result in a concise, single-line format, here is an example: "Fix buffer overflow in image processing [#456]"\n\n${diff}`;
 
         const response = await openai.chat.completions.create({
             messages: [
