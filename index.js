@@ -72,6 +72,7 @@ You will generate a commit message for the file '${file}'. In the process, you s
 - Check the file changes and provide the appropriate context (e.g., "Fix buffer overflow in image processing.").
 - Evaluate the changes to provide a concise, single-line commit message.
 - Add a period at the end of the commit message.
+- In case of insufficient information, provide a generic commit message (e.g., "Update file.").
 
 Input the final result in a concise, single-line format. Here is an example: "Fix buffer overflow in image processing."
 
