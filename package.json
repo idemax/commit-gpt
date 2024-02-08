@@ -1,14 +1,20 @@
 {
-    "name": "idemax",
-    "version": "1.0.0",
-    "description": "",
+    "name": "commit-gpt",
+    "version": "alpha-0.0.2",
+    "description": "This Node package uses OpenAI's GPT model to automatically generate concise and informative Git commit messages, aimed at developers looking to enhance commit message quality with minimal manual effort.",
     "main": "index.js",
     "type": "module",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
+    "keywords": [
+        "openai",
+        "gpt",
+        "git",
+        "commit",
+        "message",
+        "automation",
+        "developer",
+        "productivity"
+    ],
+    "author": "Marcelo AKA Idemax",
     "license": "ISC",
     "dependencies": {
         "dotenv": "^16.4.1",
