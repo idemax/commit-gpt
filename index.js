@@ -86,7 +86,7 @@ Here are the changes in '${file}':\n${diff}
             ],
             model: model,
         });
-        return response.choices[0].message.content;
+        return response.choices[0].message.content.replace(/^"|"$/g, '');
     } catch (error) {
         console.error('Error generating commit message for file:', file, error);
         return null;
