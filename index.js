@@ -74,9 +74,6 @@ Input the final result in a concise, single-line format. Here is an example: "Fi
 Here are the changes in '${file}':\n${diff}
 `.trim();
 
-        console.log(file);
-        console.log(diff);
-
         const response = await openai.chat.completions.create({
             messages: [
                 {
