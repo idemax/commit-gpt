@@ -25,10 +25,12 @@
     },
     "homepage": "https://github.com/idemax/commit-gpt",
     "scripts": {
-        "patch-release": "npm version patch && npm publish && git push --follow-tags",
+        "patch-release": "npm version $npm_package_version && npm publish --access=public && git push --follow-tags",
         "git-commit": "node ./index.js --trust",
         "git-push": "git push",
-        "update": "npm run git-commit && npm run git-push"
+        "update": "npm run git-commit && npm run git-push",
+        "tag-repository": "git tag -a $npm_package_version -m 'Release version $npm_package_version'.",
+        "release": "npm run update && npm run tag-repository && npm run patch-release"
     },
     "dependencies": {
         "dotenv": "^16.4.1",
