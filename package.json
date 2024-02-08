@@ -14,8 +14,16 @@
         "developer",
         "productivity"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/idemax/commit-gpt.git"
+    },
     "author": "Marcelo AKA Idemax",
     "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/idemax/commit-gpt/issues"
+    },
+    "homepage": "https://github.com/idemax/commit-gpt",
     "dependencies": {
         "dotenv": "^16.4.1",
         "openai": "^4.26.1",
