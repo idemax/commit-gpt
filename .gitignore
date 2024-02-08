@@ -717,3 +717,4 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/macos,windows,linux,visualstudio,visualstudiocode,rider,webstorm,notepadpp,sublimetext,vim,nanoc
 /.env
 /.vscode/
+/.commit-gpt
