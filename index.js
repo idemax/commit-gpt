@@ -13,7 +13,7 @@ const rl = readline.createInterface({
 async function generateCommitMessageForFile(file) {
     const diff = shell.exec(`git diff ${file}`, { silent: true }).stdout;
     try {
-        const prompt = `Given the changes in the file '${file}', generate a clear, professional commit message within 50 characters, embodying senior engineer Git practices. Here are the changes:\n${diff}`;
+        const prompt = `Given the changes in the file '${file}', generate a clear, professional commit message within 50 characters, embodying senior engineer Git practices. Never user emojis. Here are the changes:\n${diff}`;
         const response = await openai.chat.completions.create({
             messages: [
                 {
