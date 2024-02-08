@@ -58,7 +58,14 @@ async function hasChangesToCommit() {
 async function generateCommitMessageForFile(file) {
     const diff = shell.exec(`git diff ${file}`, { silent: true }).stdout;
     try {
-        const prompt = `Given the changes in the file '${file}', generate a clear, professional commit message within 50 characters, embodying senior engineer Git practices. Here are the changes:\n${diff}`;
+        const prompt = `Given the changes in the file '${file}', generate a clear, professional commit message within 50 characters, embodying senior engineer Git practices. Follow these rules:
+1. Start with a verb in the imperative mood (e.g., Add, Fix, Update).
+2. Include the file action (Added, Renamed, Moved, Deleted).
+3. Be specific but concise.
+4. Avoid technical jargon not familiar to a broad audience.
+5. Do not use emojis or slang.
+6. Reflect the main impact or purpose of the change.
+Here are the changes:\n${diff}`;
         const response = await openai.chat.completions.create({
             messages: [
                 {
