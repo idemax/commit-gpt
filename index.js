@@ -77,13 +77,6 @@ if (!process.env.OPENAI_API_MODEL) {
     debugLog('OPENAI_API_MODEL set to:', process.env.OPENAI_API_MODEL);
 }
 
-// if (!process.env.OPENAI_API_KEY) {
-//     console.error(
-//         'OPENAI_API_KEY is not set. Please create a .env file with your OPENAI_API_KEY. You can create a new one here: https://platform.openai.com/api-keys',
-//     );
-//     process.exit(1);
-// }
-
 let model = process.env.OPENAI_API_MODEL || 'gpt-3.5-turbo-0125'; // Default model
 
 const openai = new OpenAI();
