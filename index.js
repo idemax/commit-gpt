@@ -70,6 +70,7 @@ You will generate a commit message for the file '${file}'. In the process, you s
 - Don't encapsulate the commit message in quotes.
 - Check the file extension and provide the appropriate context (e.g., "Add support for .ts files").
 - Check the file changes and provide the appropriate context (e.g., "Fix buffer overflow in image processing").
+- Evaluate the changes to provide a concise, single-line commit message.
 
 Input the final result in a concise, single-line format. Here is an example: "Fix buffer overflow in image processing."
 
