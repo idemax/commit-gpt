@@ -58,14 +58,19 @@ async function hasChangesToCommit() {
 async function generateCommitMessageForFile(file) {
     const diff = shell.exec(`git diff ${file}`, { silent: true }).stdout;
     try {
-        const prompt = `Given the changes in the file '${file}', generate a clear, professional commit message within 50 characters, embodying senior engineer Git practices. Follow these rules:
-1. Start with a verb in the imperative mood (e.g., Add, Fix, Update).
-2. Include the file action (Added, Renamed, Moved, Deleted).
-3. Be specific but concise.
-4. Avoid technical jargon not familiar to a broad audience.
-5. Do not use emojis or slang.
-6. Reflect the main impact or purpose of the change.
-Here are the changes:\n${diff}`;
+        const prompt = `Generate a commit message for the file '${file}' following these comprehensive guidelines:
+
+1. Start with a concise summary under 72 characters, capturing the essence of the change in the imperative mood (e.g., "Add", "Fix").
+2. Specify the action taken (Added, Renamed, Moved, Deleted) and reflect the main impact or purpose of the change.
+3. Separate the summary from the body with a blank line. Use the body to explain the "what" and "why" of the changes, not the "how". Wrap lines at 72 characters.
+4. Use bullet points for lists, preceded by a hyphen or asterisk and a single space. Use a hanging indent for multiline bullet points.
+5. Include references to issues or tickets when relevant, using a format like [#123] for GitHub or CAT-123 for Jira in the header or body. You can check the branch name for the issue number.
+6. Avoid emojis, slang, and end the subject line without a period. Capitalize the subject line and each paragraph.
+7. The first line is the most important: it should be able to complete the sentence "If applied, this commit will...".
+8. Provide context on why a change is being made, its effects, and any limitations of the current code. Avoid assuming the code is self-evident.
+
+Here are the changes in '${file}':\n${diff}`;
+
         const response = await openai.chat.completions.create({
             messages: [
                 {
