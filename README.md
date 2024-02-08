@@ -74,6 +74,12 @@ This tool automatically generates succinct and informative commit messages for f
 
 Contributions are welcome! Please feel free to submit pull requests or open issues for improvements or bug fixes.
 
+The soul of this project is AI thus I push you to use AI to improve this project.
+
+Rules for contributing:
+- The commits and commit message should be made by this project.
+- *Maybe more along the project...*
+
 ## License
 
 This project is licensed under the ISC License. See the [LICENSE](LICENSE) file for details.
@@ -81,3 +87,35 @@ This project is licensed under the ISC License. See the [LICENSE](LICENSE) file 
 ## Disclaimer
 
 This tool is provided as-is with no guarantees. Use at your own risk.
+
+Check OpenAI's usage policies and pricing before using the API: https://openai.com/pricing
+
+This project is AI based and may generate inappropriate or offensive content. Use with caution and review the generated messages before committing.
+
+Everything you see here is mostly done or with help of AI.
+
+Enjoy! =)
+
+---
+
+# Change Log
+
+All notable changes to this project will be documented in this file.
+
+## alpha-0.0.2 (2024-02-08)
+- Contributing guidelines
+- Change log
+- Better disclaimer
+- Package.json update according to the project
+- Add .npmignore file
+
+## alpha-0.0.1 (2024-02-07)
+- Initial release
+- Support for all GPT models
+- Support external API key
+- Interactive commit confirmation
+- Trust flag for skipping confirmations
+- Best practices for commit messages
+- README.md generation
+- License information
+- Disclaimer
