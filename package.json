@@ -1,6 +1,6 @@
 {
     "name": "@idemax/commit-gpt",
-    "version": "0.0.2",
+    "version": "alpha-0.0.2",
     "description": "This Node package uses OpenAI's GPT model to automatically generate concise and informative Git commit messages, aimed at developers looking to enhance commit message quality with minimal manual effort.",
     "main": "index.js",
     "type": "module",
@@ -29,7 +29,7 @@
         "git-commit": "node ./index.js --trust",
         "git-push": "git push --follow-tags",
         "update": "npm run git-commit && npm run git-push",
-        "tag-repository": "git tag -a $npm_package_version -m 'Release version $npm_package_version.' -f",
+        "tag-repository": "git tag -a $npm_package_version -m 'Release version.' -f && npm run update",
         "release": "npm run update && npm run tag-repository && npm run patch-release"
     },
     "dependencies": {
