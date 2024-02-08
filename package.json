@@ -25,7 +25,7 @@
     },
     "homepage": "https://github.com/idemax/commit-gpt",
     "scripts": {
-        "patch-release": "npm version $npm_package_version && npm publish --access=public -f && npm run git-push",
+        "patch-release": "npm version $npm_package_version && npm publish --access=public && npm run git-push",
         "git-commit": "node ./index.js --trust",
         "git-push": "git push --follow-tags",
         "update": "npm run git-commit && npm run git-push",
