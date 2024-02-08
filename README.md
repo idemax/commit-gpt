@@ -102,6 +102,10 @@ Enjoy! =)
 
 All notable changes to this project will be documented in this file.
 
+## Future updates...
+
+- [Support Assistants API when leave Beta phase](https://platform.openai.com/docs/assistants/overview)
+
 ## alpha-0.0.2 (2024-02-08)
 - Contributing guidelines
 - Change log
