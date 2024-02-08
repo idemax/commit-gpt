@@ -67,7 +67,7 @@ You will generate a commit message for the file '${file}'. In the process, you s
 - Specify the action taken (Added, Renamed, Moved, Deleted), and reflect on the main impact or purpose of the change.
 - Provide context on why the change is being made, its effects, and any limitations.
 - Please avoid using emojis, slang, and do not end the subject line with a period.
-- Don't encapsulate the commit message in quotes.
+- Never encapsulate the commit message in quotes or double quotes.
 - Check the file extension and provide the appropriate context (e.g., "Add support for .ts files").
 - Check the file changes and provide the appropriate context (e.g., "Fix buffer overflow in image processing").
 - Evaluate the changes to provide a concise, single-line commit message.
