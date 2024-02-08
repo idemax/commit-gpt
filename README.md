@@ -106,8 +106,12 @@ All notable changes to this project will be documented in this file.
 - Contributing guidelines
 - Change log
 - Better disclaimer
-- Package.json update according to the project
-- Add .npmignore file
+- Add `.npmignore` file
+- Added repository, bugs, and homepage URLs to `package.json`
+- Refactored debug logging for better maintainability
+- Supported loading env variables from `.commit-gpt` file
+- Expanded README with guidelines and project details
+
 
 ## alpha-0.0.1 (2024-02-07)
 - Initial release
@@ -116,6 +120,7 @@ All notable changes to this project will be documented in this file.
 - Interactive commit confirmation
 - Trust flag for skipping confirmations
 - Best practices for commit messages
+- Add .nvmrc file
 - README.md generation
 - License information
 - Disclaimer
