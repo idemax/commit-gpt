@@ -68,6 +68,8 @@ You will generate a commit message for the file '${file}'. In the process, you s
 - Provide context on why the change is being made, its effects, and any limitations.
 - Please avoid using emojis, slang, and do not end the subject line with a period.
 - Don't encapsulate the commit message in quotes.
+- Check the file extension and provide the appropriate context (e.g., "Add support for .ts files").
+- Check the file changes and provide the appropriate context (e.g., "Fix buffer overflow in image processing").
 
 Input the final result in a concise, single-line format. Here is an example: "Fix buffer overflow in image processing."
 
