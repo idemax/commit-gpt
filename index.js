@@ -4,15 +4,75 @@ import shell from 'shelljs';
 import readline from 'readline';
 import process from 'process';
 import fs from 'fs';
+import path from 'path';
 
 dotenv.config();
 
+// Function to load environment variables from a .env file
+function loadEnvFromFile() {
+    console.log('Loading environment variables from .commit-gpt file...');
+    const envFilePath = path.resolve(process.cwd(), '.commit-gpt');
+    console.log('Loading environment variables from:', envFilePath);
+    try {
+        const envConfig = dotenv.parse(fs.readFileSync(envFilePath));
+        console.log('Environment variables loaded:', envConfig);
+        if (envConfig.OPENAI_API_KEY) {
+            console.log('Setting OPENAI_API_KEY...');
+            process.env.OPENAI_API_KEY = envConfig.OPENAI_API_KEY;
+        }
+        if (envConfig.OPENAI_API_MODEL) {
+            console.log('Setting OPENAI_API_MODEL...');
+            process.env.OPENAI_API_MODEL = envConfig.OPENAI_API_MODEL;
+        }
+        console.log('Environment variables loaded successfully.');
+        console.log('OPENAI_API_KEY:', process.env.OPENAI_API_KEY);
+        console.log('OPENAI_API_MODEL:', process.env.OPENAI_API_MODEL);
+    } catch (error) {
+        console.error(
+            `Failed to load environment variables from ${envFilePath}: ${error.message}`,
+        );
+        process.exit(1);
+    }
+    console.log('Environment variables loaded successfully.');
+}
+
+// Load environment variables from file if not available in process.env
+console.log('Loading environment variables...');
+if (!process.env.OPENAI_API_KEY || !process.env.OPENAI_API_MODEL) {
+    console.log('Loading environment variables from .commit-gpt file...');
+    loadEnvFromFile();
+    console.log('Environment variables loaded successfully.');
+}
+
+// Check if OPENAI_API_KEY is available, otherwise prompt user to create a .commit-gpt file
+console.log('Checking for OPENAI_API_KEY...');
 if (!process.env.OPENAI_API_KEY) {
     console.error(
-        'OPENAI_API_KEY is not set. Please create a .env file with your OPENAI_API_KEY. You can create a new one here: https://platform.openai.com/api-keys',
+        `OPENAI_API_KEY is not set. Please create a .commit-gpt file in the current directory with your OPENAI_API_KEY.\nYou can create a new one here: https://platform.openai.com/api-keys`,
     );
     process.exit(1);
 }
+
+// Check if OPENAI_API_MODEL is available, otherwise prompt user to set the model name
+console.log('Checking for OPENAI_API_MODEL...');
+if (!process.env.OPENAI_API_MODEL) {
+    console.log('OPENAI_API_MODEL is not set.');
+    const answer = await new Promise((resolve) => {
+        rl.question(
+            'OPENAI_API_MODEL is not set. Please input the model name (leave empty for default gpt-3.5-turbo-0125): ',
+            resolve,
+        );
+    });
+    process.env.OPENAI_API_MODEL = answer || 'gpt-3.5-turbo-0125';
+    console.log('OPENAI_API_MODEL set to:', process.env.OPENAI_API_MODEL);
+}
+
+// if (!process.env.OPENAI_API_KEY) {
+//     console.error(
+//         'OPENAI_API_KEY is not set. Please create a .env file with your OPENAI_API_KEY. You can create a new one here: https://platform.openai.com/api-keys',
+//     );
+//     process.exit(1);
+// }
 
 let model = process.env.OPENAI_API_MODEL || 'gpt-3.5-turbo-0125'; // Default model
 
