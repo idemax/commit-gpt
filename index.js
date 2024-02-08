@@ -60,14 +60,15 @@ async function generateCommitMessageForFile(file) {
     try {
         const prompt = `
 Act like a very experienced senior software engineer, I need a succinct and informative commit message. 
+
 You will generate a commit message for the file '${file}'. In the process, you should:
+
 - Encapsulate the essence of the change within 72 characters, using the imperative mood (e.g., "Add", "Fix").
 - Specify the action taken (Added, Renamed, Moved, Deleted), and reflect on the main impact or purpose of the change.
-- Include issue references when relevant using formats like [#123] for GitHub or CAT-123 for Jira.
 - Provide context on why the change is being made, its effects, and any limitations.
-Please avoid using emojis, slang, and do not end the subject line with a period.
+- Please avoid using emojis, slang, and do not end the subject line with a period.
 
-Input the final result in a concise, single-line format. Here is an example: "Fix buffer overflow in image processing [#456]"
+Input the final result in a concise, single-line format. Here is an example: "Fix buffer overflow in image processing."
 
 Here are the changes in '${file}':\n${diff}
 `.trim();
