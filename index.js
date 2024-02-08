@@ -60,14 +60,13 @@ async function generateCommitMessageForFile(file) {
     try {
         const prompt = `Generate a commit message for the file '${file}' following these comprehensive guidelines:
 
-1. Start with a concise summary under 72 characters, capturing the essence of the change in the imperative mood (e.g., "Add", "Fix").
-2. Specify the action taken (Added, Renamed, Moved, Deleted) and reflect the main impact or purpose of the change.
-3. Separate the summary from the body with a blank line. Use the body to explain the "what" and "why" of the changes, not the "how". Wrap lines at 72 characters.
-4. Use bullet points for lists, preceded by a hyphen or asterisk and a single space. Use a hanging indent for multiline bullet points.
-5. Include references to issues or tickets when relevant, using a format like [#123] for GitHub or CAT-123 for Jira in the header or body. You can check the branch name for the issue number.
-6. Avoid emojis, slang, and end the subject line without a period. Capitalize the subject line and each paragraph.
-7. The first line is the most important: it should be able to complete the sentence "If applied, this commit will...".
-8. Provide context on why a change is being made, its effects, and any limitations of the current code. Avoid assuming the code is self-evident.
+- Start with a concise summary under 72 characters, capturing the essence of the change in the imperative mood (e.g., "Add", "Fix").
+- Specify the action taken (Added, Renamed, Moved, Deleted) and reflect the main impact or purpose of the change.
+- Include references to issues or tickets when relevant, using a format like [#123] for GitHub or CAT-123 for Jira in the header or body. You can check the branch name for the issue number.
+- Avoid emojis, slang, and end the subject line without a period. Capitalize the subject line.
+- It should be able to complete the sentence "If applied, this commit will...".
+- Provide context on why a change is being made, its effects, and any limitations of the current code. Avoid assuming the code is self-evident.
+- Keep it under 72 characters and a single line.
 
 Here are the changes in '${file}':\n${diff}`;
 
