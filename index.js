@@ -67,6 +67,7 @@ You will generate a commit message for the file '${file}'. In the process, you s
 - Specify the action taken (Added, Renamed, Moved, Deleted), and reflect on the main impact or purpose of the change.
 - Provide context on why the change is being made, its effects, and any limitations.
 - Please avoid using emojis, slang, and do not end the subject line with a period.
+- Don't encapsulate the commit message in quotes.
 
 Input the final result in a concise, single-line format. Here is an example: "Fix buffer overflow in image processing."
 
